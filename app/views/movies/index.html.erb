@@ -8,6 +8,12 @@
   </div>
 <% end %>
 
+<div class="sorting-links">
+  <span>Sort by Average Rating:</span>
+  <%= link_to 'Low to High', movies_path(sort: 'stars_asc', actor: params[:actor]) %> |
+  <%= link_to 'High to Low', movies_path(sort: 'stars_desc', actor: params[:actor]) %>
+</div>
+
 <% if @movies.present? && @movies.any? %>
   <table class="movies-table">
     <thead>
@@ -34,7 +40,7 @@
             <%= movie.filming_locations.pluck(:location).join(', ') %>
           </td>
           <td>
-            <%= movie.reviews.average(:stars)&.round(2) || 'N/A' %>
+            <%= movie.average_stars.present? ? movie.average_stars.round(2) : 'N/A' %>
           </td>
           <td>
             <%= movie.reviews.count %>
