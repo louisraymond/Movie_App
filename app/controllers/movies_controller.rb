@@ -7,7 +7,6 @@ class MoviesController < ApplicationController
         @movies = @movies.joins(:actors).where('actors.name ILIKE ?', "%#{params[:actor]}%")
       end
   
-      # Existing sorting functionality will be handled here later
     end
   end
   
