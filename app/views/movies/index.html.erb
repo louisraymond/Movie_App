@@ -1,7 +1,7 @@
 <h1>Movies Overview</h1>
 
-<%= form_with url: movies_path, method: :get, local: true do |form| %>
-  <div>
+<%= form_with url: movies_path, method: :get, local: true, html: { class: 'search-form' } do |form| %>
+  <div class="form-group">
     <%= form.label :actor, "Search by Actor:" %>
     <%= form.text_field :actor, value: params[:actor], placeholder: "Enter actor's name" %>
     <%= form.submit "Search" %>
@@ -9,7 +9,7 @@
 <% end %>
 
 <% if @movies.present? && @movies.any? %>
-  <table>
+  <table class="movies-table">
     <thead>
       <tr>
         <th>Title</th>
@@ -44,5 +44,5 @@
     </tbody>
   </table>
 <% else %>
-  <p>No movies available.</p>
+  <p class="no-movies">No movies available.</p>
 <% end %>
