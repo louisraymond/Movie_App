@@ -51,7 +51,6 @@ class MoviesControllerTest < ActionDispatch::IntegrationTest
     assert_select 'td', text: @location1.location
   end
 
-  # New test for searching movies by actor
   test "should search movies by actor" do
     # Search for Leonardo Di Caprio
     get movies_url, params: { actor: "Leonardo" }
