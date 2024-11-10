@@ -1,0 +1,36 @@
+<h1>Movies Overview</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Year</th>
+      <th>Director</th>
+      <th>Actors</th>
+      <th>Filming Locations</th>
+      <th>Average Rating</th>
+      <th>Number of Reviews</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @movies.each do |movie| %>
+      <tr>
+        <td><%= movie.title %></td>
+        <td><%= movie.year %></td>
+        <td><%= movie.director&.name || 'N/A' %></td>
+        <td>
+          <%= movie.actors.pluck(:name).join(', ') %>
+        </td>
+        <td>
+          <%= movie.filming_locations.pluck(:location).join(', ') %>
+        </td>
+        <td>
+          <%= movie.reviews.average(:stars)&.round(2) || 'N/A' %>
+        </td>
+        <td>
+          <%= movie.reviews.count %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
