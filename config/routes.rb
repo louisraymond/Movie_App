@@ -1,11 +1,7 @@
 Rails.application.routes.draw do
-  get 'movies/index'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  # Define RESTful routes for movies, limiting to the index action
+  resources :movies, only: [:index]
 
-  # Defines the root path route ("/")
-  # root "articles#index"
-
-  Rails.application.routes.draw do
-    resources :movies, only: [:index]
-  end
+  # Set the root path of the application to movies#index
+  root 'movies#index'
 end
