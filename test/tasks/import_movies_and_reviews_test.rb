@@ -1,5 +1,3 @@
-# test/tasks/import_movies_and_reviews_test.rb
-
 require 'test_helper'
 require 'rake'
 
