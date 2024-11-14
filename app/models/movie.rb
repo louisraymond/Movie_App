@@ -1,5 +1,3 @@
-# app/models/movie.rb
-
 class Movie < ApplicationRecord
   belongs_to :director
   has_many :movie_actors
