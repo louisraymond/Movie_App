@@ -12,7 +12,7 @@ class MoviesController < ApplicationController
     when 'stars_desc'
       @movies = @movies.sort_by_average_stars_desc
     else
-      @movies = @movies.order(created_at: :desc) # Default sorting
+      @movies = @movies.order(created_at: :desc)
     end
   end
 end
